@@ -41,6 +41,18 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Plant",
+      "image": "https://static4.depositphotos.com/1001944/360/i/950/depositphotos_3603323-stock-photo-ficus-isolated.jpg",
+      "price": "30",
+      "id": 9
+    },
+    {
+      "name": "Pink Anthurium",
+      "image": "https://media.glamour.com/photos/5ea89429e67f360008b064d8/master/w_2240%2Cc_limit/Pink%2520Anthurium.png",
+      "price": "25.99",
+      "id": 10
     }
   ]
 }
