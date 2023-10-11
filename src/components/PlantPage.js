@@ -26,13 +26,23 @@ function PlantPage() {
     setSearch(e.target.value);
   }
 
+  function handleUpdatePrice(updatedPlant) {
+    const updatedList = plants.map(plant => {
+      if (plant.id === updatedPlant.id) {
+        return updatedPlant
+      } else return plant
+    })
+    setPlants(updatedList)
+  }
+
   //filtering Items by the name
   const filteredPlants = plants.filter((item) => item.name.includes(search));
+
   return (
     <main>
       <NewPlantForm onAddNewPlant={addNewPlant} />
       <Search handleFilter={handleFIlter} search={search} />
-      <PlantList plants={filteredPlants} />
+      <PlantList plants={filteredPlants} handleUpdatePrice={handleUpdatePrice}/>
     </main>
   );
 }

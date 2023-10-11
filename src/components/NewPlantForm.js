@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { URL } from "./PlantPage";
 
-function NewPlantForm({ onAddNewPlant }) {
-  const [formData, setFormData] = useState({
+const defaultData = {
     name: "",
     image: "",
     price: "",
-  });
+  }
+
+function NewPlantForm({ onAddNewPlant }) {
+  const [formData, setFormData] = useState(defaultData);
 
   //function that handle input changes
   function handleChange(e) {
@@ -16,27 +18,20 @@ function NewPlantForm({ onAddNewPlant }) {
   //handling submit, fetching new item to db
   function handleSubmit(e) {
     e.preventDefault();
-    const newPlant = {
-      name: formData.name,
-      image: formData.image,
-      price: formData.price,
-    };
+
+    formData.price = parseInt(formData.price)
 
     fetch(URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newPlant),
+      body: JSON.stringify(formData),
     })
       .then((r) => r.json())
       .then((data) => onAddNewPlant(data));
 
-    setFormData({
-      name: "",
-      image: "",
-      price: "",
-    });
+    setFormData(defaultData);
   }
 
   return (
